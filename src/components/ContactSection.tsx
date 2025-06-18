@@ -6,7 +6,8 @@ const ContactSection = () => {
     {
       icon: "MapPin",
       title: "Адрес",
-      content: "г. Луганск, ул. Студенческая, 15",
+      content:
+        "353740, Краснодарский край, Ленинградский район, ст.Ленинградская ул.Красная 152",
       color: "text-red-600",
     },
     {
@@ -75,22 +76,29 @@ const ContactSection = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=300&h=200&fit=crop",
-              "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop",
-              "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=300&h=200&fit=crop",
-              "https://images.unsplash.com/photo-1562774053-701939374585?w=300&h=200&fit=crop",
+              "https://cdn.poehali.dev/files/f3f13ea4-1db3-430d-80d1-30d1d258b7cc.jpg",
+              "https://cdn.poehali.dev/files/649b2289-366c-4f4d-8611-a7b423e0713a.jpg",
+              "https://cdn.poehali.dev/files/0251d37a-9c59-4bb6-a26d-f66b49dcccba.jpg",
+              "https://cdn.poehali.dev/files/730236d3-a2fc-4733-a49b-6812aeb4d872.jpg",
             ].map((src, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-xl hover-scale cursor-pointer"
+                className="relative overflow-hidden rounded-xl hover-scale cursor-pointer group"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <img
                   src={src}
                   alt={`ЛСПК фото ${index + 1}`}
-                  className="w-full h-32 object-cover"
+                  className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-2 left-2 text-white text-xs font-medium">
+                    {index === 0 && "Учебный корпус"}
+                    {index === 1 && "Студенческая жизнь"}
+                    {index === 2 && "Мероприятия"}
+                    {index === 3 && "Праздничные события"}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
